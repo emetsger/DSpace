@@ -36,6 +36,8 @@ public class CollectionDepositManagerDSpace extends DSpaceSwordAPI
             AuthCredentials authCredentials, SwordConfiguration swordConfig)
             throws SwordError, SwordServerException, SwordAuthException
     {
+        log.debug("Loading " + this.getClass().getName());
+
         // start the timer
         Date start = new Date();
 

@@ -8,6 +8,7 @@
 package org.dspace.sword2;
 
 import org.apache.abdera.i18n.iri.IRI;
+import org.apache.log4j.Logger;
 import org.dspace.content.*;
 import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.content.service.BitstreamService;
@@ -32,6 +33,10 @@ import java.util.List;
  */
 public class SwordUrlManager
 {
+    /** logger */
+    private static Logger log = Logger
+            .getLogger(ServiceDocumentManagerDSpace.class);
+
     protected ItemService itemService = ContentServiceFactory.getInstance()
             .getItemService();
 
@@ -49,6 +54,7 @@ public class SwordUrlManager
 
     public SwordUrlManager(SwordConfigurationDSpace config, Context context)
     {
+        log.debug("Loading " + this.getClass().getName());
         this.config = config;
         this.context = context;
     }
@@ -365,6 +371,7 @@ public class SwordUrlManager
                                 e.getMessage(), e);
             }
         }
+        log.debug("Configured service document url: '" + sdUrl + "'");
         return sdUrl;
     }
 
@@ -426,7 +433,9 @@ public class SwordUrlManager
     public boolean isBaseServiceDocumentUrl(String url)
             throws DSpaceSwordException
     {
-        return this.getBaseServiceDocumentUrl().equals(url);
+        boolean result = this.getBaseServiceDocumentUrl().equals(url);
+        log.debug("Is '" + url + "' equal to '" + this.getBaseServiceDocumentUrl() + "': " + result);
+        return result;
     }
 
     /**

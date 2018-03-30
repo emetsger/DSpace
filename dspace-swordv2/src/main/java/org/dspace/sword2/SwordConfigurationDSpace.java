@@ -72,6 +72,7 @@ public class SwordConfigurationDSpace implements SwordConfiguration
      */
     public SwordConfigurationDSpace()
     {
+        log.debug("Loading " + this.getClass().getName());
         // set the max upload size
         int mus = configurationService
                 .getIntProperty("swordv2-server.max-upload-size");

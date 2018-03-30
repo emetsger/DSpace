@@ -11,6 +11,7 @@ import org.apache.abdera.Abdera;
 import org.apache.abdera.i18n.iri.IRI;
 import org.apache.abdera.model.Entry;
 import org.apache.abdera.model.Feed;
+import org.apache.log4j.Logger;
 import org.dspace.content.Collection;
 import org.dspace.content.Item;
 import org.dspace.content.MetadataValue;
@@ -33,11 +34,18 @@ import java.util.List;
 public class CollectionListManagerDSpace extends DSpaceSwordAPI
         implements CollectionListManager
 {
+    private static Logger log = Logger
+            .getLogger(CollectionListManagerDSpace.class);
+
     protected WorkspaceItemService workspaceItemService = ContentServiceFactory
             .getInstance().getWorkspaceItemService();
 
     protected WorkflowItemService workflowItemService = WorkflowServiceFactory
             .getInstance().getWorkflowItemService();
+
+    public CollectionListManagerDSpace() {
+        log.debug("Loading " + this.getClass().getName());
+    }
 
     public Feed listCollectionContents(IRI colIRI,
             AuthCredentials authCredentials, SwordConfiguration swordConfig)
