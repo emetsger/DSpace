@@ -44,7 +44,7 @@ public class CollectionListManagerDSpace extends DSpaceSwordAPI
             .getInstance().getWorkflowItemService();
 
     public CollectionListManagerDSpace() {
-        log.debug("Loading " + this.getClass().getName());
+        log.debug(">>>> Loading " + this.getClass().getName());
     }
 
     public Feed listCollectionContents(IRI colIRI,

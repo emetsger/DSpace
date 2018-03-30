@@ -41,6 +41,7 @@ public class ServiceDocumentManagerDSpace implements ServiceDocumentManager
             AuthCredentials authCredentials, SwordConfiguration config)
             throws SwordError, SwordServerException, SwordAuthException
     {
+        log.debug(">>>> Loading " + this.getClass().getName());
         SwordContext sc = null;
 
         try

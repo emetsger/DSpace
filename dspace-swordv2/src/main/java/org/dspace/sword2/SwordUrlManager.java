@@ -35,7 +35,7 @@ public class SwordUrlManager
 {
     /** logger */
     private static Logger log = Logger
-            .getLogger(ServiceDocumentManagerDSpace.class);
+            .getLogger(SwordUrlManager.class);
 
     protected ItemService itemService = ContentServiceFactory.getInstance()
             .getItemService();
@@ -54,7 +54,7 @@ public class SwordUrlManager
 
     public SwordUrlManager(SwordConfigurationDSpace config, Context context)
     {
-        log.debug("Loading " + this.getClass().getName());
+        log.debug(">>>> Loading " + this.getClass().getName());
         this.config = config;
         this.context = context;
     }
@@ -371,7 +371,7 @@ public class SwordUrlManager
                                 e.getMessage(), e);
             }
         }
-        log.debug("Configured service document url: '" + sdUrl + "'");
+        log.debug(">>>> Configured service document url: '" + sdUrl + "'");
         return sdUrl;
     }
 
@@ -434,7 +434,7 @@ public class SwordUrlManager
             throws DSpaceSwordException
     {
         boolean result = this.getBaseServiceDocumentUrl().equals(url);
-        log.debug("Is '" + url + "' equal to '" + this.getBaseServiceDocumentUrl() + "': " + result);
+        log.debug(">>>> Is '" + url + "' equal to '" + this.getBaseServiceDocumentUrl() + "': " + result);
         return result;
     }
 
